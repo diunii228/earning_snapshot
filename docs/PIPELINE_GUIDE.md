@@ -21,6 +21,45 @@ Khi cùng 1 KPI đã tồn tại, nguồn ưu tiên cao hơn sẽ ghi đè ngu�
 - `bank_kpi_values`: bảng “phẳng” tách từng KPI từ snapshot (dễ query)
 - `bank_fs_components`: raw components phục vụ tính KPI (CASA/growth/credit/NIM LTM, ...)
 
+## Database & pgAdmin
+
+Project có sẵn `docker-compose.yml` để chạy PostgreSQL và pgAdmin local.
+
+Chạy database:
+
+`docker compose up -d postgres pgadmin`
+
+Thông tin PostgreSQL local:
+
+- Host từ máy local: `127.0.0.1`
+- Port từ máy local: `5433`
+- Database: `agent_competitor`
+- Username: `postgres`
+- Password: `postgres`
+
+Biến môi trường `.env`:
+
+`DATABASE_URL=postgresql://postgres:postgres@127.0.0.1:5433/agent_competitor`
+
+Vào pgAdmin:
+
+- URL: `http://localhost:5050`
+- Email: `admin@admin.com`
+- Password: `admin`
+
+Thêm server trong pgAdmin:
+
+- Click `Add New Server`
+- Tab `General`: đặt Name, ví dụ `agent-competitor-local`
+- Tab `Connection`:
+  - Host name/address: `postgres`
+  - Port: `5432`
+  - Maintenance database: `agent_competitor`
+  - Username: `postgres`
+  - Password: `postgres`
+
+Lưu ý: Trong pgAdmin chạy cùng Docker network, host là `postgres` và port là `5432`. Khi kết nối từ máy Mac qua `.env` hoặc client bên ngoài Docker, dùng host `127.0.0.1` và port `5433`.
+
 ## Các Lệnh Chạy
 
 Tất cả command chạy trong repo:

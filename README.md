@@ -25,6 +25,10 @@ agent-competitor/
 pip install -e .
 ```
 
+## Database / pgAdmin
+
+Project có sẵn PostgreSQL + pgAdmin trong `docker-compose.yml`. Hướng dẫn chạy DB, đăng nhập pgAdmin và cấu hình server nằm ở [`docs/PIPELINE_GUIDE.md`](docs/PIPELINE_GUIDE.md#database--pgadmin).
+
 ## Cấu hình
 
 Tạo file `.env`:
